@@ -51,11 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const slides = carousel.querySelectorAll(".familia-slide");
 
-        const anterior = carousel.querySelector(".carrossel-btn.anterior");
+        const slidesContainer =
+            carousel.querySelector(".familia-slides");
 
-        const proximo = carousel.querySelector(".carrossel-btn.proximo");
+        const anterior =
+            carousel.querySelector(".carrossel-btn.anterior");
 
-        const indicadores = carousel.querySelectorAll(".indicador");
+        const proximo =
+            carousel.querySelector(".carrossel-btn.proximo");
+
+        const indicadores =
+            carousel.querySelectorAll(".indicador");
 
         let slideAtual = 0;
 
@@ -86,6 +92,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
+            /* =========================
+               MOVIMENTA AS IMAGENS
+            ========================== */
+
+            if (slidesContainer) {
+
+                slidesContainer.style.transform =
+                    "translateX(-" +
+                    (slideAtual * 100) +
+                    "%)";
+
+            }
+
+
+            /* =========================
+               ATIVA O SLIDE
+            ========================== */
+
             slides.forEach(function (slide, i) {
 
                 slide.classList.toggle(
@@ -95,6 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
+
+            /* =========================
+               ATIVA O INDICADOR
+            ========================== */
 
             indicadores.forEach(function (dot, i) {
 
@@ -158,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ========================== */
 
         let inicioX = 0;
-
         let fimX = 0;
 
 
@@ -260,7 +287,8 @@ document.addEventListener("DOMContentLoaded", function () {
        GOOGLE ANALYTICS 4
     ========================== */
 
-    const whatsappLinks = document.querySelectorAll(".js-whatsapp");
+    const whatsappLinks =
+        document.querySelectorAll(".js-whatsapp");
 
     whatsappLinks.forEach(function (link) {
 
