@@ -558,16 +558,22 @@ button {
     border-radius: 18px;
 
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+    touch-action: pan-y;
 }
 
 .familia-slides {
     display: flex;
 
+    width: 100%;
+
     transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .familia-slide {
     min-width: 100%;
+    flex: 0 0 100%;
 }
 
 .familia-slide img {
@@ -599,6 +605,8 @@ button {
     transform: translateY(-50%);
 
     transition: background 0.3s ease;
+
+    z-index: 5;
 }
 
 .carrossel-btn:hover {
@@ -623,6 +631,8 @@ button {
     gap: 8px;
 
     transform: translateX(-50%);
+
+    z-index: 5;
 }
 
 .indicador {
