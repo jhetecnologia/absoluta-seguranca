@@ -61,7 +61,7 @@ button {
 
     padding: 0 4%;
 
-    background: rgba(255, 255, 255, 0.97);
+    background: #173B63;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.08);
 
     z-index: 1000;
@@ -86,13 +86,13 @@ button {
 .header nav a {
     font-size: 14px;
     font-weight: 600;
-    color: #1f2933;
+    color: #ffffff;
 
     transition: color 0.3s ease;
 }
 
 .header nav a:hover {
-    color: #0d6efd;
+    color: #dcecf8;
 }
 
 .btn-whatsapp {
@@ -272,7 +272,7 @@ button {
 }
 
 .section-label {
-    color: #0d6efd;
+    color: #173B63;
 }
 
 .section-heading h2 {
@@ -328,7 +328,7 @@ button {
 
     border-radius: 50%;
 
-    background: #0d6efd;
+    background: #173B63;
     color: #ffffff;
 
     font-size: 22px;
@@ -358,7 +358,7 @@ button {
 .servico-destaque {
     padding: 100px 0;
 
-    background: #f7f9fb;
+    background: #eef5fa;
 }
 
 .servico-destaque-grid {
@@ -495,7 +495,7 @@ button {
 }
 
 .card-link {
-    color: #0d6efd;
+    color: #173B63;
 
     font-size: 14px;
     font-weight: 700;
@@ -758,7 +758,7 @@ button {
     margin-top: 28px;
     padding: 20px;
 
-    border-left: 4px solid #0d6efd;
+    border-left: 4px solid #173B63;
 
     background: #ffffff;
 }
@@ -809,7 +809,7 @@ button {
     font-size: 38px;
     font-weight: 800;
 
-    color: #0d6efd;
+    color: #173B63;
 }
 
 .passo h3 {
@@ -886,7 +886,7 @@ button {
 .cta {
     padding: 100px 0;
 
-    background: #0d6efd;
+    background: #173B63;
 
     color: #ffffff;
 
@@ -1112,6 +1112,7 @@ footer {
 
     .menu-toggle {
         display: block;
+        color: #ffffff;
     }
 
     .header nav {
@@ -1130,7 +1131,7 @@ footer {
 
         padding: 15px 5%;
 
-        background: #ffffff;
+        background: #173B63;
 
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
@@ -1142,9 +1143,10 @@ footer {
     .header nav a {
         padding: 13px 0;
 
-        border-bottom: 1px solid #eeeeee;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 
         font-size: 14px;
+        color: #ffffff;
     }
 
     .header > .btn-whatsapp {
