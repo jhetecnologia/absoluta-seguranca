@@ -1,4 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
 
     /* =========================
        MENU MOBILE
@@ -7,301 +9,194 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".header nav");
 
-    if (menuToggle && nav) {
+    function fecharMenu() {
+        if (!menuToggle || !nav) return;
 
-        menuToggle.addEventListener("click", function () {
-
-            const ativo = nav.classList.toggle("ativo");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                ativo ? "true" : "false"
-            );
-
-        });
-
-
-        const linksMenu = nav.querySelectorAll("a");
-
-        linksMenu.forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                nav.classList.remove("ativo");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            });
-
-        });
-
+        nav.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
     }
 
+    if (menuToggle && nav) {
+        menuToggle.addEventListener("click", function () {
+            const aberto = nav.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", String(aberto));
+            menuToggle.setAttribute(
+                "aria-label",
+                aberto ? "Fechar menu" : "Abrir menu"
+            );
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", fecharMenu);
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                fecharMenu();
+                menuToggle.focus();
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            if (
+                nav.classList.contains("active") &&
+                !nav.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+                fecharMenu();
+            }
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) {
+                fecharMenu();
+            }
+        });
+    }
 
     /* =========================
-       CARROSSEL CRIANÇA E PET
+       CARROSSEL CRIANÇAS E PETS
     ========================== */
 
     const carousel = document.querySelector(".familia-carrossel");
 
     if (carousel) {
+        const slides = Array.from(
+            carousel.querySelectorAll(".familia-slide")
+        );
 
-        const slides = carousel.querySelectorAll(".familia-slide");
-
-        const slidesContainer =
-            carousel.querySelector(".familia-slides");
-
-        const anterior =
-            carousel.querySelector(".carrossel-btn.anterior");
-
-        const proximo =
-            carousel.querySelector(".carrossel-btn.proximo");
-
-        const indicadores =
-            carousel.querySelectorAll(".indicador");
+        const slidesContainer = carousel.querySelector(".familia-slides");
+        const anterior = carousel.querySelector(".carrossel-btn.anterior");
+        const proximo = carousel.querySelector(".carrossel-btn.proximo");
+        const indicadores = Array.from(
+            carousel.querySelectorAll(".indicador")
+        );
 
         let slideAtual = 0;
+        let inicioX = 0;
+        let inicioY = 0;
+        let arrastando = false;
 
+        const movimentoReduzido = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
 
-        function mostrarSlide(index) {
-
-            if (slides.length === 0) {
-                return;
-            }
-
-
-            if (index >= slides.length) {
-
-                slideAtual = 0;
-
-            }
-
-            else if (index < 0) {
-
-                slideAtual = slides.length - 1;
-
-            }
-
-            else {
-
-                slideAtual = index;
-
-            }
-
-
-            /* =========================
-               MOVIMENTA AS IMAGENS
-            ========================== */
-
-            if (slidesContainer) {
+        if (slidesContainer && slides.length > 0) {
+            function mostrarSlide(index) {
+                slideAtual = (index + slides.length) % slides.length;
 
                 slidesContainer.style.transform =
-                    "translateX(-" +
-                    (slideAtual * 100) +
-                    "%)";
+                    "translateX(-" + slideAtual * 100 + "%)";
 
+                slidesContainer.style.transition = movimentoReduzido.matches
+                    ? "none"
+                    : "";
+
+                slides.forEach(function (slide, i) {
+                    const ativo = i === slideAtual;
+
+                    slide.classList.toggle("ativo", ativo);
+                    slide.setAttribute("aria-hidden", String(!ativo));
+
+                    slide.querySelectorAll("a, button").forEach(function (item) {
+                        item.tabIndex = ativo ? 0 : -1;
+                    });
+                });
+
+                indicadores.forEach(function (indicador, i) {
+                    const ativo = i === slideAtual;
+
+                    indicador.classList.toggle("ativo", ativo);
+                    indicador.setAttribute(
+                        "aria-current",
+                        ativo ? "true" : "false"
+                    );
+                });
             }
 
+            if (anterior) {
+                anterior.addEventListener("click", function () {
+                    mostrarSlide(slideAtual - 1);
+                });
+            }
 
-            /* =========================
-               ATIVA O SLIDE
-            ========================== */
+            if (proximo) {
+                proximo.addEventListener("click", function () {
+                    mostrarSlide(slideAtual + 1);
+                });
+            }
 
-            slides.forEach(function (slide, i) {
-
-                slide.classList.toggle(
-                    "ativo",
-                    i === slideAtual
-                );
-
+            indicadores.forEach(function (indicador, i) {
+                indicador.addEventListener("click", function () {
+                    mostrarSlide(i);
+                });
             });
 
-
-            /* =========================
-               ATIVA O INDICADOR
-            ========================== */
-
-            indicadores.forEach(function (dot, i) {
-
-                dot.classList.toggle(
-                    "ativo",
-                    i === slideAtual
-                );
-
+            /* Navegação por teclado quando o carrossel está em foco */
+            carousel.addEventListener("keydown", function (event) {
+                if (event.key === "ArrowLeft") {
+                    mostrarSlide(slideAtual - 1);
+                } else if (event.key === "ArrowRight") {
+                    mostrarSlide(slideAtual + 1);
+                }
             });
 
-        }
-
-
-        /* =========================
-           BOTÃO PRÓXIMO
-        ========================== */
-
-        if (proximo) {
-
-            proximo.addEventListener("click", function () {
-
-                mostrarSlide(slideAtual + 1);
-
-            });
-
-        }
-
-
-        /* =========================
-           BOTÃO ANTERIOR
-        ========================== */
-
-        if (anterior) {
-
-            anterior.addEventListener("click", function () {
-
-                mostrarSlide(slideAtual - 1);
-
-            });
-
-        }
-
-
-        /* =========================
-           INDICADORES
-        ========================== */
-
-        indicadores.forEach(function (dot, i) {
-
-            dot.addEventListener("click", function () {
-
-                mostrarSlide(i);
-
-            });
-
-        });
-
-
-        /* =========================
-           PASSAR PARA O LADO COM MOUSE
-        ========================== */
-
-        let inicioX = 0;
-        let fimX = 0;
-
-
-        carousel.addEventListener(
-            "mousedown",
-            function (event) {
+            /* Gesto de arrastar com mouse ou toque */
+            carousel.addEventListener("pointerdown", function (event) {
+                if (event.pointerType === "mouse" && event.button !== 0) {
+                    return;
+                }
 
                 inicioX = event.clientX;
+                inicioY = event.clientY;
+                arrastando = true;
+            });
 
-            }
-        );
+            carousel.addEventListener("pointerup", function (event) {
+                if (!arrastando) return;
 
+                arrastando = false;
 
-        carousel.addEventListener(
-            "mouseup",
-            function (event) {
+                const distanciaX = event.clientX - inicioX;
+                const distanciaY = event.clientY - inicioY;
 
-                fimX = event.clientX;
-
-                const distancia = fimX - inicioX;
-
-
-                if (Math.abs(distancia) > 50) {
-
-                    if (distancia < 0) {
-
-                        mostrarSlide(slideAtual + 1);
-
-                    }
-
-                    else {
-
-                        mostrarSlide(slideAtual - 1);
-
-                    }
-
+                /* Ignora gestos predominantemente verticais */
+                if (
+                    Math.abs(distanciaX) < 50 ||
+                    Math.abs(distanciaX) < Math.abs(distanciaY)
+                ) {
+                    return;
                 }
 
-            }
-        );
+                mostrarSlide(
+                    distanciaX < 0 ? slideAtual + 1 : slideAtual - 1
+                );
+            });
 
+            carousel.addEventListener("pointercancel", function () {
+                arrastando = false;
+            });
 
-        /* =========================
-           TOUCH NO CELULAR
-        ========================== */
-
-        carousel.addEventListener(
-            "touchstart",
-            function (event) {
-
-                inicioX = event.touches[0].clientX;
-
-            },
-            { passive: true }
-        );
-
-
-        carousel.addEventListener(
-            "touchend",
-            function (event) {
-
-                fimX = event.changedTouches[0].clientX;
-
-                const distancia = fimX - inicioX;
-
-
-                if (Math.abs(distancia) > 50) {
-
-                    if (distancia < 0) {
-
-                        mostrarSlide(slideAtual + 1);
-
-                    }
-
-                    else {
-
-                        mostrarSlide(slideAtual - 1);
-
-                    }
-
-                }
-
-            },
-            { passive: true }
-        );
-
-
-        /* =========================
-           INICIA NO PRIMEIRO SLIDE
-        ========================== */
-
-        mostrarSlide(0);
-
+            mostrarSlide(0);
+        }
     }
 
-
     /* =========================
-       RASTREAMENTO DE CLIQUE NO WHATSAPP
+       RASTREAMENTO DE WHATSAPP
        GOOGLE ANALYTICS 4
     ========================== */
 
-    const whatsappLinks =
-        document.querySelectorAll(".js-whatsapp");
-
-    whatsappLinks.forEach(function (link) {
-
+    document.querySelectorAll(".js-whatsapp").forEach(function (link) {
         link.addEventListener("click", function () {
-
-            if (typeof gtag === "function") {
-
-                gtag("event", "clique_whatsapp");
-
+            if (typeof window.gtag === "function") {
+                window.gtag("event", "clique_whatsapp", {
+                    event_category: "contato",
+                    event_label: link.href,
+                    transport_type: "beacon"
+                });
             }
-
         });
-
     });
-
 });
