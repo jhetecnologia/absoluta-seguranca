@@ -1284,3 +1284,473 @@ footer {
         height: 54px;
     }
 }
+
+
+/* =========================================
+   REFINAMENTO VISUAL — ABSOLUTA SEGURANÇA
+   Adicionar ao final de estilos.css
+========================================= */
+
+:root {
+    --azul-principal: #173B63;
+    --azul-escuro: #102B49;
+    --azul-claro: #EAF2F8;
+    --texto-principal: #17212B;
+    --texto-secundario: #596775;
+    --fundo-suave: #F5F8FB;
+    --verde-whatsapp: #25D366;
+    --borda-suave: #E3EAF0;
+    --sombra-card: 0 12px 32px rgba(16, 43, 73, 0.07);
+    --raio-card: 16px;
+}
+
+/* Navegação e acessibilidade */
+
+html {
+    scroll-padding-top: 96px;
+}
+
+body {
+    color: var(--texto-principal);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid #77C4F2;
+    outline-offset: 4px;
+}
+
+.header {
+    background: var(--azul-principal);
+    box-shadow: 0 4px 22px rgba(8, 28, 49, 0.16);
+}
+
+.header nav a {
+    position: relative;
+}
+
+.header nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -6px;
+    left: 0;
+    height: 2px;
+    content: "";
+    background: #B9DDF5;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.header nav a:hover::after,
+.header nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.menu-toggle {
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 5px 9px;
+}
+
+/* Botões */
+
+.btn-primary,
+.btn-cta,
+.btn-whatsapp {
+    min-height: 48px;
+    border-radius: 8px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
+}
+
+.btn-primary,
+.btn-cta {
+    background: var(--verde-whatsapp);
+}
+
+.btn-primary:hover,
+.btn-cta:hover {
+    background: #1EBA59;
+}
+
+.btn-primary:focus-visible,
+.btn-cta:focus-visible,
+.btn-whatsapp:focus-visible {
+    outline-color: #8CCEFF;
+}
+
+/* Hero */
+
+.hero {
+    background-color: var(--azul-escuro);
+    background-position: center 45%;
+}
+
+.hero-overlay {
+    background: linear-gradient(
+        90deg,
+        rgba(7, 24, 43, 0.86) 0%,
+        rgba(7, 24, 43, 0.69) 48%,
+        rgba(7, 24, 43, 0.25) 100%
+    );
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero-label {
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    letter-spacing: 1.8px;
+}
+
+.hero h1 {
+    max-width: 760px;
+    letter-spacing: -1.5px;
+    text-wrap: balance;
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.hero-location {
+    color: rgba(255, 255, 255, 0.96);
+}
+
+/* Títulos e ritmo das seções */
+
+.section-heading {
+    margin-bottom: 48px;
+}
+
+.section-heading h2,
+.servico-texto h2,
+.familia-texto h2,
+.sobre-texto h2,
+.cta h2 {
+    letter-spacing: -0.8px;
+    text-wrap: balance;
+}
+
+.section-label {
+    letter-spacing: 1.4px;
+}
+
+/* Benefícios */
+
+.beneficio {
+    border: 1px solid var(--borda-suave);
+    border-radius: var(--raio-card);
+    background: #FFFFFF;
+    box-shadow: 0 5px 18px rgba(16, 43, 73, 0.035);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.beneficio:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-card);
+}
+
+.beneficio-icon {
+    background: var(--azul-principal);
+}
+
+/* Serviços */
+
+.servico-destaque {
+    background: var(--azul-claro);
+}
+
+.servico-imagem,
+.sobre-imagem,
+.familia-carrossel {
+    border-radius: 18px;
+}
+
+.servico-imagem img,
+.sobre-imagem img {
+    transition: transform 0.45s ease;
+}
+
+.servico-imagem:hover img,
+.sobre-imagem:hover img {
+    transform: scale(1.025);
+}
+
+.servico-card {
+    border: 1px solid var(--borda-suave);
+    border-radius: var(--raio-card);
+    box-shadow: 0 6px 24px rgba(16, 43, 73, 0.06);
+}
+
+.servico-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.servico-card p {
+    flex-grow: 1;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--azul-principal);
+}
+
+.card-link:hover {
+    color: #0A5D99;
+}
+
+/* Fundos e blocos */
+
+.protecao-familia,
+.sobre,
+.faq-section {
+    background: var(--fundo-suave);
+}
+
+.area-atendimento {
+    border-left-color: var(--azul-principal);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 18px rgba(16, 43, 73, 0.04);
+}
+
+/* Galeria */
+
+.galeria-item {
+    background: var(--fundo-suave);
+}
+
+.galeria-item img {
+    transition: transform 0.45s ease;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.035);
+}
+
+/* Etapas */
+
+.passo {
+    border: 1px solid var(--borda-suave);
+    background: #FFFFFF;
+    box-shadow: 0 5px 20px rgba(16, 43, 73, 0.04);
+}
+
+.passo > span {
+    font-size: 34px;
+}
+
+/* FAQ */
+
+.faq details {
+    overflow: hidden;
+    border: 1px solid var(--borda-suave);
+    border-radius: 10px;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
+}
+
+.faq details[open] {
+    border-color: #A8C8E2;
+}
+
+.faq summary {
+    position: relative;
+    padding-right: 54px;
+}
+
+.faq summary::after {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    content: "+";
+    color: var(--azul-principal);
+    font-size: 24px;
+    font-weight: 500;
+    transform: translateY(-50%);
+}
+
+.faq details[open] summary::after {
+    content: "−";
+}
+
+/* CTA e rodapé */
+
+.cta {
+    background: linear-gradient(135deg, #173B63, #102B49);
+}
+
+footer {
+    background: #0E1C2B;
+}
+
+.footer-column a:hover {
+    color: #B9DDF5;
+}
+
+/* WhatsApp flutuante */
+
+.whatsapp-flutuante {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
+}
+
+.whatsapp-flutuante:focus-visible {
+    outline: 3px solid #173B63;
+    outline-offset: 4px;
+}
+
+/* Responsividade refinada */
+
+@media (max-width: 1000px) {
+    .servico-destaque-grid,
+    .familia-grid,
+    .sobre-grid {
+        gap: 42px;
+    }
+
+    .header nav {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 82px;
+    }
+
+    .header nav {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .header nav a::after {
+        display: none;
+    }
+
+    .hero {
+        min-height: 640px;
+        background-position: 58% center;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(7, 24, 43, 0.86),
+            rgba(7, 24, 43, 0.58)
+        );
+    }
+
+    .hero h1 {
+        letter-spacing: -0.8px;
+        text-wrap: balance;
+    }
+
+    .servico-imagem img,
+    .familia-slide img,
+    .sobre-imagem img {
+        height: 380px;
+    }
+
+    .beneficio:hover,
+    .servico-card:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero {
+        min-height: 620px;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 9vw, 39px);
+        line-height: 1.12;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons,
+    .hero-buttons .btn-primary {
+        width: 100%;
+    }
+
+    .hero-buttons .btn-primary {
+        padding: 15px 18px;
+        text-align: center;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2,
+    .servico-texto h2,
+    .familia-texto h2,
+    .sobre-texto h2 {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .servico-imagem img,
+    .familia-slide img,
+    .sobre-imagem img {
+        height: 310px;
+    }
+
+    .servico-card-content {
+        padding: 24px;
+    }
+
+    .faq summary {
+        padding: 19px 48px 19px 18px;
+        font-size: 15px;
+    }
+
+    .faq summary::after {
+        right: 18px;
+    }
+
+    .faq p {
+        padding: 0 18px 20px;
+    }
+
+    .whatsapp-flutuante {
+        right: 16px;
+        bottom: 16px;
+        width: 54px;
+        height: 54px;
+    }
+}
+
+/* Respeita quem prefere menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
