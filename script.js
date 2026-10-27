@@ -2,25 +2,30 @@
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
-    /* =========================
+    /* =========================================
        MENU MOBILE
-    ========================== */
+    ========================================= */
 
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".header nav");
 
-    function fecharMenu() {
+    function fecharMenu(devolverFoco = false) {
         if (!menuToggle || !nav) return;
 
         nav.classList.remove("active");
         menuToggle.setAttribute("aria-expanded", "false");
         menuToggle.setAttribute("aria-label", "Abrir menu");
+
+        if (devolverFoco) {
+            menuToggle.focus();
+        }
     }
 
     if (menuToggle && nav) {
         menuToggle.addEventListener("click", function () {
-            const aberto = nav.classList.toggle("active");
+            const aberto = !nav.classList.contains("active");
 
+            nav.classList.toggle("active", aberto);
             menuToggle.setAttribute("aria-expanded", String(aberto));
             menuToggle.setAttribute(
                 "aria-label",
@@ -29,13 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         nav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", fecharMenu);
+            link.addEventListener("click", function () {
+                fecharMenu();
+            });
         });
 
         document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape") {
-                fecharMenu();
-                menuToggle.focus();
+            if (event.key === "Escape" && nav.classList.contains("active")) {
+                fecharMenu(true);
             }
         });
 
@@ -56,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* =========================
-       CARROSSEL CRIANÇAS E PETS
-    ========================== */
+    /* =========================================
+       CARROSSEL — CRIANÇAS E PETS
+    ========================================= */
 
     const carousel = document.querySelector(".familia-carrossel");
 
@@ -70,8 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const slidesContainer = carousel.querySelector(".familia-slides");
         const anterior = carousel.querySelector(".carrossel-btn.anterior");
         const proximo = carousel.querySelector(".carrossel-btn.proximo");
+
         const indicadores = Array.from(
             carousel.querySelectorAll(".indicador")
+        );
+
+        const movimentoReduzido = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
         );
 
         let slideAtual = 0;
@@ -79,43 +90,75 @@ document.addEventListener("DOMContentLoaded", function () {
         let inicioY = 0;
         let arrastando = false;
 
-        const movimentoReduzido = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        );
+        function atualizarTransicao() {
+            if (!slidesContainer) return;
+
+            slidesContainer.style.transition = movimentoReduzido.matches
+                ? "none"
+                : "";
+        }
+
+        function mostrarSlide(index) {
+            if (!slidesContainer || slides.length === 0) return;
+
+            slideAtual = (index + slides.length) % slides.length;
+
+            atualizarTransicao();
+
+            slidesContainer.style.transform =
+                "translateX(-" + slideAtual * 100 + "%)";
+
+            slides.forEach(function (slide, i) {
+                const ativo = i === slideAtual;
+
+                slide.classList.toggle("ativo", ativo);
+                slide.setAttribute("aria-hidden", String(!ativo));
+
+                /* Impede foco em conteúdo de slides inativos */
+                slide.inert = !ativo;
+
+                slide.querySelectorAll(
+                    "a, button, input, select, textarea, [tabindex]"
+                ).forEach(function (elemento) {
+                    if (!ativo) {
+                        if (!elemento.hasAttribute("data-tabindex-original")) {
+                            elemento.setAttribute(
+                                "data-tabindex-original",
+                                elemento.getAttribute("tabindex") ?? ""
+                            );
+                        }
+
+                        elemento.setAttribute("tabindex", "-1");
+                    } else if (elemento.hasAttribute("data-tabindex-original")) {
+                        const valorOriginal = elemento.getAttribute(
+                            "data-tabindex-original"
+                        );
+
+                        if (valorOriginal === "") {
+                            elemento.removeAttribute("tabindex");
+                        } else {
+                            elemento.setAttribute("tabindex", valorOriginal);
+                        }
+
+                        elemento.removeAttribute("data-tabindex-original");
+                    }
+                });
+            });
+
+            indicadores.forEach(function (indicador, i) {
+                const ativo = i === slideAtual;
+
+                indicador.classList.toggle("ativo", ativo);
+
+                if (ativo) {
+                    indicador.setAttribute("aria-current", "true");
+                } else {
+                    indicador.removeAttribute("aria-current");
+                }
+            });
+        }
 
         if (slidesContainer && slides.length > 0) {
-            function mostrarSlide(index) {
-                slideAtual = (index + slides.length) % slides.length;
-
-                slidesContainer.style.transform =
-                    "translateX(-" + slideAtual * 100 + "%)";
-
-                slidesContainer.style.transition = movimentoReduzido.matches
-                    ? "none"
-                    : "";
-
-                slides.forEach(function (slide, i) {
-                    const ativo = i === slideAtual;
-
-                    slide.classList.toggle("ativo", ativo);
-                    slide.setAttribute("aria-hidden", String(!ativo));
-
-                    slide.querySelectorAll("a, button").forEach(function (item) {
-                        item.tabIndex = ativo ? 0 : -1;
-                    });
-                });
-
-                indicadores.forEach(function (indicador, i) {
-                    const ativo = i === slideAtual;
-
-                    indicador.classList.toggle("ativo", ativo);
-                    indicador.setAttribute(
-                        "aria-current",
-                        ativo ? "true" : "false"
-                    );
-                });
-            }
-
             if (anterior) {
                 anterior.addEventListener("click", function () {
                     mostrarSlide(slideAtual - 1);
@@ -128,24 +171,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            indicadores.forEach(function (indicador, i) {
+            indicadores.forEach(function (indicador, index) {
                 indicador.addEventListener("click", function () {
-                    mostrarSlide(i);
+                    mostrarSlide(index);
                 });
             });
 
-            /* Navegação por teclado quando o carrossel está em foco */
+            /* Navegação por teclado */
             carousel.addEventListener("keydown", function (event) {
+                if (event.altKey || event.ctrlKey || event.metaKey) return;
+
                 if (event.key === "ArrowLeft") {
+                    event.preventDefault();
                     mostrarSlide(slideAtual - 1);
                 } else if (event.key === "ArrowRight") {
+                    event.preventDefault();
                     mostrarSlide(slideAtual + 1);
                 }
             });
 
-            /* Gesto de arrastar com mouse ou toque */
+            /* Arrastar com mouse ou toque */
             carousel.addEventListener("pointerdown", function (event) {
                 if (event.pointerType === "mouse" && event.button !== 0) {
+                    return;
+                }
+
+                /* Não inicia arraste sobre controles ou links */
+                if (
+                    event.target.closest(
+                        "button, a, input, select, textarea, label"
+                    )
+                ) {
+                    arrastando = false;
                     return;
                 }
 
@@ -162,10 +219,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 const distanciaX = event.clientX - inicioX;
                 const distanciaY = event.clientY - inicioY;
 
-                /* Ignora gestos predominantemente verticais */
+                /* Ignora movimentos curtos ou predominantemente verticais */
                 if (
                     Math.abs(distanciaX) < 50 ||
-                    Math.abs(distanciaX) < Math.abs(distanciaY)
+                    Math.abs(distanciaX) <= Math.abs(distanciaY)
                 ) {
                     return;
                 }
@@ -179,23 +236,44 @@ document.addEventListener("DOMContentLoaded", function () {
                 arrastando = false;
             });
 
+            carousel.addEventListener("lostpointercapture", function () {
+                arrastando = false;
+            });
+
+            /* Atualiza a preferência se mudar durante a navegação */
+            if (typeof movimentoReduzido.addEventListener === "function") {
+                movimentoReduzido.addEventListener(
+                    "change",
+                    atualizarTransicao
+                );
+            }
+
             mostrarSlide(0);
         }
     }
 
-    /* =========================
-       RASTREAMENTO DE WHATSAPP
+    /* =========================================
+       RASTREAMENTO DE CLIQUES NO WHATSAPP
        GOOGLE ANALYTICS 4
-    ========================== */
+    ========================================= */
 
     document.querySelectorAll(".js-whatsapp").forEach(function (link) {
         link.addEventListener("click", function () {
+            const dadosEvento = {
+                link_url: link.href,
+                link_text: link.textContent.trim(),
+                transport_type: "beacon"
+            };
+
             if (typeof window.gtag === "function") {
-                window.gtag("event", "clique_whatsapp", {
-                    event_category: "contato",
-                    event_label: link.href,
-                    transport_type: "beacon"
-                });
+                window.gtag("event", "clique_whatsapp", dadosEvento);
+            } else if (Array.isArray(window.dataLayer)) {
+                /* Mantém o evento na fila caso gtag ainda não esteja disponível */
+                window.dataLayer.push([
+                    "event",
+                    "clique_whatsapp",
+                    dadosEvento
+                ]);
             }
         });
     });
