@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Política de Privacidade | Absoluta Segurança</title>
+
+    <meta
+        name="description"
+        content="Conheça a Política de Privacidade da Absoluta Segurança e saiba como tratamos dados pessoais, informações de navegação e contatos realizados pelo site."
+    >
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Absoluta Segurança">
+    <meta name="theme-color" content="#001F4D">
+
+    <link
+        rel="canonical"
+        href="https://www.absolutasegurancaredes.com/privacidade.html"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        media="print"
+        onload="this.media='all'"
+    >
+
+    <noscript>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        >
+    </noscript>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        .politica-privacidade {
+            padding: 150px 0 80px;
+            background: #fff;
+            color: #263449;
+        }
+
+        .politica-privacidade .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .politica-privacidade h1 {
+            color: #001F4D;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .politica-privacidade h2 {
+            color: #001F4D;
+            font-size: 1.35rem;
+            line-height: 1.4;
+            margin: 34px 0 12px;
+        }
+
+        .politica-privacidade p,
+        .politica-privacidade li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .politica-privacidade p {
+            margin: 0 0 16px;
+        }
+
+        .politica-privacidade ul {
+            padding-left: 24px;
+            margin: 0 0 20px;
+        }
+
+        .politica-privacidade li {
+            margin-bottom: 8px;
+        }
+
+        .politica-privacidade a {
+            color: #005bbb;
+            text-decoration: underline;
+            overflow-wrap: anywhere;
+        }
+
+        .politica-data {
+            color: #596579;
+            font-size: .9rem !important;
+            margin-bottom: 28px !important;
+        }
+
+        .politica-aviso {
+            padding: 18px 20px;
+            margin: 24px 0;
+            background: #f3f6fa;
+            border-left: 4px solid #001F4D;
+            border-radius: 6px;
+        }
+
+        .politica-contato {
+            margin-top: 28px;
+            padding: 24px;
+            background: #f3f6fa;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .politica-privacidade {
+                padding: 120px 0 56px;
+            }
+
+            .politica-privacidade .container {
+                padding: 0 20px;
+            }
+
+            .politica-privacidade h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header" id="header">
+    <a
+        aria-label="Absoluta Segurança - página inicial"
+        class="logo"
+        href="index.html"
+    >
+        <img
+            src="logo.jpeg"
+            alt="Absoluta Segurança | Redes de Proteção"
+            width="150"
+            height="75"
+        >
+    </a>
+
+    <button
+        aria-expanded="false"
+        aria-controls="nav"
+        aria-label="Abrir menu"
+        class="menu-toggle"
+        type="button"
+    >
+        ☰
+    </button>
+
+    <nav id="nav" aria-label="Navegação principal">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#galeria">Galeria</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#faq">Dúvidas</a>
+        <a href="index.html#contato">Contato</a>
+    </nav>
+
+    <a
+        class="btn-whatsapp"
+        href="https://wa.me/5511947044930?text=Ol%C3%A1%2C%20gostaria%20de%20entrar%20em%20contato%20com%20a%20Absoluta%20Seguran%C3%A7a."
+        rel="noopener noreferrer"
+        target="_blank"
+    >
+        Fale conosco
+    </a>
+</header>
+
+<main>
+    <section class="politica-privacidade">
+        <div class="container">
+
+            <span class="section-label">PRIVACIDADE E PROTEÇÃO DE DADOS</span>
+
+            <h1>Política de Privacidade</h1>
+
+            <p class="politica-data">
+                Última atualização: 27 de outubro de 2026.
+            </p>
+
+            <p>
+                A Absoluta Segurança respeita a privacidade dos visitantes
+                de seu site e busca tratar os dados pessoais de forma
+                transparente, responsável e segura.
+            </p>
+
+            <p>
+                Esta Política de Privacidade explica quais informações
+                podem ser tratadas durante a navegação pelo site
+                <a href="https://www.absolutasegurancaredes.com/">
+                    www.absolutasegurancaredes.com
+                </a>,
+                para quais finalidades elas podem ser utilizadas e quais
+                direitos os titulares possuem, conforme a legislação
+                aplicável, especialmente a Lei Geral de Proteção de Dados
+                Pessoais (Lei nº 13.709/2018 — LGPD).
+            </p>
+
+            <div class="politica-aviso">
+                <p>
+                    <strong>Importante:</strong> ao entrar em contato
+                    conosco pelo WhatsApp, você também estará sujeito às
+                    práticas de privacidade e aos termos do serviço
+                    utilizado para essa comunicação.
+                </p>
+            </div>
+
+            <h2>1. Quem é responsável pelo tratamento dos dados?</h2>
+
+            <p>
+                Para os tratamentos relacionados a este site e ao
+                atendimento comercial, a responsável indicada é
+                Absoluta Segurança, que oferece serviços de instalação
+                de redes de proteção, telas mosquiteiras, grades e
+                varais de teto.
+            </p>
+
+            <p>
+                <strong>E-mail para assuntos de privacidade:</strong>
+                <a href="mailto:absolutasegurancaredes@gmail.com">
+                    absolutasegurancaredes@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Telefone/WhatsApp:</strong>
+                <a
+                    href="https://wa.me/5511947044930"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    (11) 94704-4930
+                </a>
+            </p>
+
+            <h2>2. Quais dados pessoais podem ser tratados?</h2>
+
+            <p>
+                Os dados tratados dependem da forma como você utiliza
+                o site e entra em contato conosco. Eles podem incluir:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Dados de contato:</strong> nome, telefone
+                    e outras informações que você decidir compartilhar
+                    ao solicitar um orçamento.
+                </li>
+                <li>
+                    <strong>Informações sobre o serviço:</strong>
+                    detalhes do ambiente, tipo de instalação desejada,
+                    região de atendimento e demais informações
+                    necessárias para avaliar sua solicitação.
+                </li>
+                <li>
+                    <strong>Dados de navegação:</strong> endereço IP,
+                    informações sobre dispositivo e navegador, páginas
+                    visitadas, origem da visita, interações e dados
+                    técnicos que possam ser registrados pelos serviços
+                    utilizados no site.
+                </li>
+                <li>
+                    <strong>Dados de medição e publicidade:</strong>
+                    informações relacionadas a visitas, campanhas
+                    publicitárias e interações com anúncios, conforme
+                    a configuração das ferramentas de análise e
+                    publicidade utilizadas.
+                </li>
+            </ul>
+
+            <p>
+                O site não possui, nesta versão, um formulário próprio
+                de solicitação de orçamento. Os links de contato
+                direcionam o visitante ao WhatsApp. As informações
+                enviadas voluntariamente nessa conversa poderão ser
+                tratadas para responder à solicitação.
+            </p>
+
+            <h2>3. Para quais finalidades utilizamos os dados?</h2>
+
+            <p>Os dados pessoais podem ser utilizados para:</p>
+
+            <ul>
+                <li>Responder a dúvidas e solicitações de orçamento.</li>
+                <li>
+                    Avaliar a necessidade do serviço e orientar o cliente
+                    sobre as soluções disponíveis.
+                </li>
+                <li>
+                    Realizar contatos relacionados ao atendimento
+                    solicitado e à eventual contratação.
+                </li>
+                <li>
+                    Compreender como o site é utilizado e identificar
+                    oportunidades de melhoria.
+                </li>
+                <li>
+                    Medir o desempenho de campanhas publicitárias
+                    e avaliar resultados de divulgação.
+                </li>
+                <li>
+                    Proteger o site, prevenir abusos e cumprir
+                    obrigações legais aplicáveis.
+                </li>
+            </ul>
+
+            <p>
+                O tratamento deve se limitar às finalidades legítimas
+                e compatíveis com o contexto da coleta, observando
+                os princípios de necessidade, transparência e
+                segurança previstos na LGPD.
+            </p>
+
+            <h2>4. WhatsApp e canais de atendimento</h2>
+
+            <p>
+                Os botões de contato do site direcionam o visitante
+                ao WhatsApp. Ao iniciar uma conversa, você poderá
+                compartilhar informações como nome, telefone,
+                endereço aproximado do serviço, fotografias do ambiente
+                e detalhes necessários para elaborar um orçamento.
+            </p>
+
+            <p>
+                Recomendamos que você envie somente as informações
+                necessárias ao atendimento e evite compartilhar
+                documentos, dados financeiros ou outras informações
+                pessoais que não sejam pertinentes à solicitação.
+            </p>
+
+            <p>
+                O WhatsApp é um serviço de terceiros e possui suas
+                próprias práticas de tratamento de dados. Consulte
+                a política de privacidade do serviço em:
+                <a
+                    href="https://www.whatsapp.com/legal/privacy-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Política de Privacidade do WhatsApp
+                </a>.
+            </p>
+
+            <h2>5. Google Analytics 4 e Google Ads</h2>
+
+            <p>
+                Este site utiliza tags do Google Analytics 4
+                (identificador G-J08HYK3CEN) e do Google Ads
+                (identificador AW-17518062294) para análise de
+                utilização do site e mensuração de publicidade.
+            </p>
+
+            <p>
+                Conforme a configuração dessas ferramentas, elas
+                podem tratar informações técnicas de navegação,
+                eventos, interações com páginas e anúncios,
+                identificadores online e informações relacionadas
+                à origem das visitas.
+            </p>
+
+            <p>
+                Essas informações podem ajudar a compreender o
+                desempenho do site, medir resultados de campanhas
+                e avaliar as interações com os anúncios.
+            </p>
+
+            <p>
+                O tratamento realizado por essas ferramentas depende
+                de suas configurações, das tecnologias utilizadas,
+                das opções disponíveis ao visitante e da base legal
+                aplicável a cada operação. A presença das tags, por
+                si só, não significa que todos os dados possíveis
+                sejam coletados em todas as visitas.
+            </p>
+
+            <p>
+                Para saber mais sobre as práticas do Google, consulte:
+            </p>
+
+            <ul>
+                <li>
+                    <a
+                        href="https://policies.google.com/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Política de Privacidade do Google
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://policies.google.com/technologies/ads"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Como o Google utiliza informações em publicidade
+                    </a>
+                </li>
+            </ul>
+
+            <h2>6. Cookies e tecnologias semelhantes</h2>
+
+            <p>
+                Cookies e tecnologias semelhantes podem ser utilizados
+                para permitir o funcionamento de recursos, armazenar
+                preferências, compreender a navegação ou apoiar a
+                mensuração e a publicidade, dependendo das ferramentas
+                habilitadas e de suas configurações.
+            </p>
+
+            <p>
+                As tags do Google Analytics 4 e do Google Ads podem
+                utilizar cookies ou identificadores semelhantes,
+                conforme a implementação e as configurações adotadas.
+            </p>
+
+            <p>
+                Você pode consultar as configurações de privacidade
+                do navegador para verificar, bloquear ou excluir
+                cookies. A restrição de determinadas tecnologias
+                pode afetar algumas funcionalidades ou a medição
+                de resultados.
+            </p>
+
+            <p>
+                Quando o consentimento for a base legal necessária
+                para determinada tecnologia, seu uso deverá respeitar
+                as regras aplicáveis de consentimento e revogação.
+                A presente política, por si só, não substitui um
+                mecanismo de consentimento ou gerenciamento de cookies
+                quando ele for necessário.
+            </p>
+
+            <h2>7. Bases legais do tratamento</h2>
+
+            <p>
+                Os dados pessoais serão tratados com fundamento
+                em uma ou mais hipóteses legais aplicáveis da LGPD,
+                de acordo com cada finalidade e circunstância.
+                Entre elas, quando cabível, podem estar:
+            </p>
+
+            <ul>
+                <li>
+                    Procedimentos preliminares relacionados a um
+                    contrato, a pedido do titular, como a preparação
+                    de um orçamento.
+                </li>
+                <li>
+                    Cumprimento de obrigações legais ou regulatórias.
+                </li>
+                <li>
+                    Exercício regular de direitos.
+                </li>
+                <li>
+                    Legítimo interesse, após avaliação de necessidade,
+                    finalidade e respeito aos direitos do titular,
+                    quando essa hipótese for aplicável.
+                </li>
+                <li>
+                    Consentimento, quando exigido e validamente obtido
+                    para a finalidade correspondente.
+                </li>
+            </ul>
+
+            <p>
+                A base legal adequada será determinada conforme
+                a operação de tratamento efetivamente realizada.
+                Nem todas as bases legais se aplicam a todas as
+                informações ou ferramentas.
+            </p>
+
+            <h2>8. Compartilhamento de dados</h2>
+
+            <p>
+                Os dados pessoais poderão ser compartilhados
+                somente quando necessário para as finalidades
+                descritas nesta política, por exemplo:
+            </p>
+
+            <ul>
+                <li>
+                    Com o WhatsApp, quando você utiliza esse serviço
+                    para entrar em contato.
+                </li>
+                <li>
+                    Com provedores de análise e publicidade, como
+                    Google Analytics 4 e Google Ads, conforme
+                    as ferramentas e configurações do site.
+                </li>
+                <li>
+                    Com prestadores de serviços que auxiliem na
+                    operação do site ou no atendimento, quando
+                    necessário e de forma compatível com a finalidade.
+                </li>
+                <li>
+                    Com autoridades públicas, quando houver
+                    obrigação legal ou determinação válida.
+                </li>
+            </ul>
+
+            <p>
+                Não se pretende comercializar dados pessoais
+                fornecidos pelos visitantes. Eventuais operações
+                de compartilhamento deverão respeitar a legislação
+                aplicável e as finalidades informadas.
+            </p>
+
+            <h2>9. Transferência internacional de dados</h2>
+
+            <p>
+                Alguns fornecedores de serviços digitais podem
+                processar ou armazenar informações em servidores
+                localizados fora do Brasil. Caso ocorra transferência
+                internacional de dados pessoais, ela deverá observar
+                os requisitos e mecanismos previstos na LGPD e
+                na regulamentação aplicável.
+            </p>
+
+            <h2>10. Por quanto tempo os dados são mantidos?</h2>
+
+            <p>
+                Os dados pessoais serão mantidos pelo período
+                necessário para atender às finalidades do tratamento,
+                prestar o atendimento solicitado, cumprir obrigações
+                legais ou regulatórias e permitir o exercício regular
+                de direitos, conforme aplicável.
+            </p>
+
+            <p>
+                Os períodos de retenção de dados tratados por
+                ferramentas de terceiros, como Google Analytics 4
+                e Google Ads, também podem depender das configurações
+                dessas plataformas e de suas próprias políticas.
+            </p>
+
+            <p>
+                Quando os dados deixarem de ser necessários, eles
+                serão eliminados ou tratados de outra forma permitida
+                pela legislação, ressalvadas as hipóteses legais
+                de conservação.
+            </p>
+
+            <h2>11. Como protegemos os dados?</h2>
+
+            <p>
+                Buscamos adotar medidas técnicas e organizacionais
+                adequadas para proteger as informações contra
+                acessos não autorizados, perda, alteração,
+                divulgação ou tratamento inadequado.
+            </p>
+
+            <p>
+                Nenhum sistema ou transmissão pela internet pode
+                garantir segurança absoluta. Por isso, recomendamos
+                que os visitantes também evitem compartilhar dados
+                desnecessários ou informações confidenciais nos
+                canais de contato.
+            </p>
+
+            <h2>12. Direitos dos titulares de dados</h2>
+
+            <p>
+                Nos termos da LGPD, você poderá solicitar,
+                conforme aplicável:
+            </p>
+
+            <ul>
+                <li>Confirmação da existência de tratamento de dados.</li>
+                <li>Acesso aos dados pessoais tratados.</li>
+                <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+                <li>
+                    Anonimização, bloqueio ou eliminação de dados
+                    desnecessários, excessivos ou tratados em
+                    desconformidade com a legislação.
+                </li>
+                <li>
+                    Eliminação dos dados tratados com consentimento,
+                    ressalvadas as hipóteses legais de conservação.
+                </li>
+                <li>
+                    Informação sobre compartilhamentos realizados,
+                    observadas as condições legais aplicáveis.
+                </li>
+                <li>
+                    Revogação do consentimento, quando o tratamento
+                    estiver baseado nessa hipótese.
+                </li>
+                <li>
+                    Oposição a tratamentos realizados em desacordo
+                    com a legislação, quando cabível.
+                </li>
+            </ul>
+
+            <p>
+                Os pedidos serão avaliados de acordo com a legislação,
+                a natureza da solicitação e as condições aplicáveis.
+                Poderemos solicitar informações razoáveis para
+                confirmar a identidade do solicitante e proteger
+                os dados contra acesso indevido.
+            </p>
+
+            <div class="politica-contato">
+                <h2>13. Como exercer seus direitos</h2>
+
+                <p>
+                    Para esclarecer dúvidas sobre esta política ou
+                    solicitar informações relacionadas aos seus
+                    dados pessoais, entre em contato pelo e-mail:
+                </p>
+
+                <p>
+                    <strong>
+                        <a href="mailto:absolutasegurancaredes@gmail.com">
+                            absolutasegurancaredes@gmail.com
+                        </a>
+                    </strong>
+                </p>
+
+                <p>
+                    Se preferir, você também pode entrar em contato
+                    pelo WhatsApp:
+                    <a
+                        href="https://wa.me/5511947044930"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        (11) 94704-4930
+                    </a>.
+                </p>
+
+                <p>
+                    Descreva sua solicitação de forma clara e evite
+                    incluir dados pessoais desnecessários na mensagem.
+                </p>
+            </div>
+
+            <h2>14. Links para sites de terceiros</h2>
+
+            <p>
+                Este site pode conter links para plataformas externas,
+                como WhatsApp e redes sociais. Ao acessar esses links,
+                você estará sujeito às políticas e aos termos dos
+                respectivos serviços. Recomendamos consultar as
+                informações de privacidade de cada plataforma.
+            </p>
+
+            <h2>15. Alterações nesta política</h2>
+
+            <p>
+                Esta Política de Privacidade poderá ser atualizada
+                para refletir alterações no site, nas ferramentas
+                utilizadas, nas práticas de tratamento de dados
+                ou na legislação aplicável.
+            </p>
+
+            <p>
+                A versão vigente estará disponível nesta página,
+                acompanhada da data da última atualização.
+            </p>
+
+            <h2>16. Legislação aplicável</h2>
+
+            <p>
+                Esta política é interpretada de acordo com a
+                legislação brasileira aplicável, especialmente
+                a Lei Geral de Proteção de Dados Pessoais
+                (Lei nº 13.709/2018).
+            </p>
+
+            <p>
+                Para consultar o texto legal, acesse:
+                <a
+                    href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Lei Geral de Proteção de Dados Pessoais — LGPD
+                </a>.
+            </p>
+
+            <p>
+                <strong>Absoluta Segurança</strong><br>
+                São Paulo — SP<br>
+                E-mail:
+                <a href="mailto:absolutasegurancaredes@gmail.com">
+                    absolutasegurancaredes@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <a href="index.html">Voltar à página inicial</a>
+            </p>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+
+        <div class="footer-column">
+            <a href="index.html" aria-label="Voltar ao início">
+                <img
+                    src="logo.jpeg"
+                    alt="Absoluta Segurança | Redes de Proteção"
+                    class="footer-logo"
+                    width="150"
+                    height="75"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </a>
+
+            <p>Proteção, qualidade e segurança para o seu ambiente.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Navegação</h3>
+            <a href="index.html#inicio">Início</a>
+            <a href="index.html#servicos">Serviços</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#contato">Contato</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contato</h3>
+
+            <a
+                href="https://wa.me/5511947044930"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                WhatsApp: (11) 94704-4930
+            </a>
+
+            <a href="mailto:absolutasegurancaredes@gmail.com">
+                absolutasegurancaredes@gmail.com
+            </a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Privacidade</h3>
+            <a href="privacidade.html" aria-current="page">
+                Política de Privacidade
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © 2026 Absoluta Segurança | Redes de Proteção.
+            Todos os direitos reservados.
+        </p>
+    </div>
+</footer>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
