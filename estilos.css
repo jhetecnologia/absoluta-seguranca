@@ -1,4 +1,4 @@
-
+css
 /* =========================
    VARIÁVEIS GLOBAIS
 ========================== */
@@ -14,8 +14,13 @@
     --fundo-suave: #F5F8FB;
     --borda-suave: #E3EAF0;
 
-    --verde-whatsapp: #128C4A;
-    --verde-whatsapp-hover: #0E713A;
+    /* Verde original do WhatsApp */
+    --verde-whatsapp: #25D366;
+    --verde-whatsapp-hover: #1EBE5D;
+
+    /* Verde dos botões com texto branco: contraste acessível */
+    --verde-botao: #117A40;
+    --verde-botao-hover: #0E6335;
 
     --sombra-card: 0 12px 32px rgba(16, 43, 73, 0.07);
     --raio-card: 16px;
@@ -193,7 +198,7 @@ button:disabled {
     padding: 13px 22px;
 
     color: #FFFFFF;
-    background: var(--verde-whatsapp);
+    background: var(--verde-botao);
     border: none;
     border-radius: 8px;
 
@@ -202,24 +207,27 @@ button:disabled {
     line-height: 1.4;
     text-align: center;
 
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 12px rgba(16, 43, 73, 0.14);
 
     transition:
         transform 0.25s ease,
-        background 0.25s ease;
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .btn-whatsapp:hover,
 .btn-primary:hover,
 .btn-cta:hover {
-    background: var(--verde-whatsapp-hover);
+    background: var(--verde-botao-hover);
+    box-shadow: 0 6px 16px rgba(16, 43, 73, 0.18);
     transform: translateY(-2px);
 }
 
 .btn-whatsapp:focus-visible,
 .btn-primary:focus-visible,
 .btn-cta:focus-visible {
-    outline-color: #8CCEFF;
+    outline: 3px solid #8CCEFF;
+    outline-offset: 4px;
 }
 
 
@@ -1166,7 +1174,7 @@ footer {
 
     transition:
         transform 0.25s ease,
-        background 0.25s ease;
+        background-color 0.25s ease;
 }
 
 .whatsapp-flutuante:hover {
