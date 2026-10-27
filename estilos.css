@@ -1,4 +1,3 @@
-css
 /* =========================
    VARIÁVEIS GLOBAIS
 ========================== */
@@ -14,13 +13,8 @@ css
     --fundo-suave: #F5F8FB;
     --borda-suave: #E3EAF0;
 
-    /* Verde original do WhatsApp */
     --verde-whatsapp: #25D366;
-    --verde-whatsapp-hover: #1EBE5D;
-
-    /* Verde dos botões com texto branco: contraste acessível */
-    --verde-botao: #117A40;
-    --verde-botao-hover: #0E6335;
+    --verde-whatsapp-hover: #1EBA59;
 
     --sombra-card: 0 12px 32px rgba(16, 43, 73, 0.07);
     --raio-card: 16px;
@@ -164,11 +158,7 @@ button:disabled {
 
 .menu-toggle {
     display: none;
-    align-items: center;
-    justify-content: center;
 
-    min-width: 44px;
-    min-height: 44px;
     padding: 5px 9px;
 
     color: #FFFFFF;
@@ -198,7 +188,7 @@ button:disabled {
     padding: 13px 22px;
 
     color: #FFFFFF;
-    background: var(--verde-botao);
+    background: var(--verde-whatsapp);
     border: none;
     border-radius: 8px;
 
@@ -207,27 +197,24 @@ button:disabled {
     line-height: 1.4;
     text-align: center;
 
-    box-shadow: 0 4px 12px rgba(16, 43, 73, 0.14);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
 
     transition:
         transform 0.25s ease,
-        background-color 0.25s ease,
-        box-shadow 0.25s ease;
+        background 0.25s ease;
 }
 
 .btn-whatsapp:hover,
 .btn-primary:hover,
 .btn-cta:hover {
-    background: var(--verde-botao-hover);
-    box-shadow: 0 6px 16px rgba(16, 43, 73, 0.18);
+    background: var(--verde-whatsapp-hover);
     transform: translateY(-2px);
 }
 
 .btn-whatsapp:focus-visible,
 .btn-primary:focus-visible,
 .btn-cta:focus-visible {
-    outline: 3px solid #8CCEFF;
-    outline-offset: 4px;
+    outline-color: #8CCEFF;
 }
 
 
@@ -620,9 +607,6 @@ button:disabled {
     align-items: center;
     gap: 6px;
 
-    min-height: 44px;
-    padding: 8px 0;
-
     color: var(--azul-principal);
 
     font-size: 14px;
@@ -693,7 +677,7 @@ button:disabled {
     width: 100%;
 
     transition: transform 0.5s ease;
-    will-change: auto;
+    will-change: transform;
 }
 
 .familia-slide {
@@ -1076,20 +1060,6 @@ footer {
     padding-bottom: 55px;
 }
 
-/* Cinco grupos no rodapé em telas grandes */
-@media (min-width: 1001px) {
-    .footer-content {
-        grid-template-columns:
-            minmax(0, 1.2fr)
-            minmax(0, 0.9fr)
-            minmax(0, 1.6fr)
-            minmax(0, 1fr)
-            minmax(0, 0.8fr);
-
-        gap: 28px;
-    }
-}
-
 .footer-column {
     display: flex;
     flex-direction: column;
@@ -1103,7 +1073,7 @@ footer {
 }
 
 .footer-column p {
-    color: #C5D0DC;
+    color: rgba(255, 255, 255, 0.72);
     font-size: 13px;
     line-height: 1.7;
 }
@@ -1114,17 +1084,8 @@ footer {
 }
 
 .footer-column a {
-    display: inline-flex;
-    align-items: center;
-
-    width: fit-content;
-    min-height: 32px;
-    padding: 4px 0;
-
-    color: #C5D0DC;
+    color: rgba(255, 255, 255, 0.72);
     font-size: 13px;
-
-    overflow-wrap: anywhere;
 
     transition: color 0.25s ease;
 }
@@ -1174,7 +1135,7 @@ footer {
 
     transition:
         transform 0.25s ease,
-        background-color 0.25s ease;
+        background 0.25s ease;
 }
 
 .whatsapp-flutuante:hover {
@@ -1187,12 +1148,9 @@ footer {
     height: 32px;
 }
 
-.whatsapp-flutuante:focus-visible,
-.footer-column a:focus-visible,
-.card-link:focus-visible,
-.menu-toggle:focus-visible {
-    outline: 3px solid #8CCEFF;
-    outline-offset: 3px;
+.whatsapp-flutuante:focus-visible {
+    outline: 3px solid #77C4F2;
+    outline-offset: 4px;
 }
 
 
@@ -1260,7 +1218,7 @@ footer {
     }
 
     .menu-toggle {
-        display: flex;
+        display: block;
     }
 
     .header nav {
@@ -1489,18 +1447,6 @@ footer {
 
 
 /* =========================
-   ESTABILIDADE DO LAYOUT
-========================== */
-
-.servico-destaque-grid > *,
-.familia-grid > *,
-.sobre-grid > *,
-.footer-content > * {
-    min-width: 0;
-}
-
-
-/* =========================
    ACESSIBILIDADE: MOVIMENTO
 ========================== */
 
@@ -1516,12 +1462,5 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-    }
-
-    .familia-slides,
-    .servico-imagem img,
-    .sobre-imagem img,
-    .galeria-item img {
-        transition: none !important;
     }
 }
