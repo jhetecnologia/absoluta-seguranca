@@ -1,3 +1,4 @@
+
 /* =========================
    VARIÁVEIS GLOBAIS
 ========================== */
@@ -13,8 +14,8 @@
     --fundo-suave: #F5F8FB;
     --borda-suave: #E3EAF0;
 
-    --verde-whatsapp: #25D366;
-    --verde-whatsapp-hover: #1EBA59;
+    --verde-whatsapp: #128C4A;
+    --verde-whatsapp-hover: #0E713A;
 
     --sombra-card: 0 12px 32px rgba(16, 43, 73, 0.07);
     --raio-card: 16px;
@@ -158,7 +159,11 @@ button:disabled {
 
 .menu-toggle {
     display: none;
+    align-items: center;
+    justify-content: center;
 
+    min-width: 44px;
+    min-height: 44px;
     padding: 5px 9px;
 
     color: #FFFFFF;
@@ -607,6 +612,9 @@ button:disabled {
     align-items: center;
     gap: 6px;
 
+    min-height: 44px;
+    padding: 8px 0;
+
     color: var(--azul-principal);
 
     font-size: 14px;
@@ -677,7 +685,7 @@ button:disabled {
     width: 100%;
 
     transition: transform 0.5s ease;
-    will-change: transform;
+    will-change: auto;
 }
 
 .familia-slide {
@@ -1060,6 +1068,20 @@ footer {
     padding-bottom: 55px;
 }
 
+/* Cinco grupos no rodapé em telas grandes */
+@media (min-width: 1001px) {
+    .footer-content {
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(0, 0.9fr)
+            minmax(0, 1.6fr)
+            minmax(0, 1fr)
+            minmax(0, 0.8fr);
+
+        gap: 28px;
+    }
+}
+
 .footer-column {
     display: flex;
     flex-direction: column;
@@ -1073,7 +1095,7 @@ footer {
 }
 
 .footer-column p {
-    color: rgba(255, 255, 255, 0.72);
+    color: #C5D0DC;
     font-size: 13px;
     line-height: 1.7;
 }
@@ -1084,8 +1106,17 @@ footer {
 }
 
 .footer-column a {
-    color: rgba(255, 255, 255, 0.72);
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+    min-height: 32px;
+    padding: 4px 0;
+
+    color: #C5D0DC;
     font-size: 13px;
+
+    overflow-wrap: anywhere;
 
     transition: color 0.25s ease;
 }
@@ -1148,9 +1179,12 @@ footer {
     height: 32px;
 }
 
-.whatsapp-flutuante:focus-visible {
-    outline: 3px solid #77C4F2;
-    outline-offset: 4px;
+.whatsapp-flutuante:focus-visible,
+.footer-column a:focus-visible,
+.card-link:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 3px solid #8CCEFF;
+    outline-offset: 3px;
 }
 
 
@@ -1218,7 +1252,7 @@ footer {
     }
 
     .menu-toggle {
-        display: block;
+        display: flex;
     }
 
     .header nav {
@@ -1447,6 +1481,18 @@ footer {
 
 
 /* =========================
+   ESTABILIDADE DO LAYOUT
+========================== */
+
+.servico-destaque-grid > *,
+.familia-grid > *,
+.sobre-grid > *,
+.footer-content > * {
+    min-width: 0;
+}
+
+
+/* =========================
    ACESSIBILIDADE: MOVIMENTO
 ========================== */
 
@@ -1462,5 +1508,12 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    .familia-slides,
+    .servico-imagem img,
+    .sobre-imagem img,
+    .galeria-item img {
+        transition: none !important;
     }
 }
