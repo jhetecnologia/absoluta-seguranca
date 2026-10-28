@@ -526,7 +526,7 @@ button:disabled {
 .servico-texto li span {
     flex-shrink: 0;
 
-    color: var(--verde-whatsapp);
+    color: #0F763E;
     font-weight: 800;
 }
 
