@@ -189,7 +189,7 @@ button:disabled {
     padding: 13px 22px;
 
     color: #FFFFFF;
-    background: var(--verde-whatsapp);
+    background: #128C4A;
     border: none;
     border-radius: 8px;
 
@@ -208,14 +208,16 @@ button:disabled {
 .btn-whatsapp:hover,
 .btn-primary:hover,
 .btn-cta:hover {
-    background: var(--verde-whatsapp-hover);
+    color: #FFFFFF;
+    background: #0F763E;
     transform: translateY(-2px);
 }
 
 .btn-whatsapp:focus-visible,
 .btn-primary:focus-visible,
 .btn-cta:focus-visible {
-    outline-color: #8CCEFF;
+    outline: 3px solid #8CCEFF;
+    outline-offset: 4px;
 }
 
 
@@ -1238,10 +1240,10 @@ footer {
         grid-row: span 1;
     }
 
-    /* Rodapé em três colunas */
+    /* Rodapé em duas colunas */
 
     .footer-content {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 28px;
         row-gap: 32px;
     }
