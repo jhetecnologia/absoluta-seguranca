@@ -124,6 +124,12 @@ button:disabled {
 .header nav a {
     position: relative;
 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
     color: #FFFFFF;
     font-size: 14px;
     font-weight: 600;
@@ -160,6 +166,8 @@ button:disabled {
 .menu-toggle {
     display: none;
 
+    width: 44px;
+    height: 44px;
     padding: 5px 9px;
 
     color: #FFFFFF;
@@ -608,6 +616,9 @@ button:disabled {
     align-items: center;
     gap: 6px;
 
+    min-height: 44px;
+    padding: 8px 0;
+
     color: var(--azul-principal);
 
     font-size: 14px;
@@ -702,8 +713,10 @@ button:disabled {
     align-items: center;
     justify-content: center;
 
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
 
     color: #FFFFFF;
     background: rgba(0, 0, 0, 0.55);
@@ -736,24 +749,45 @@ button:disabled {
     z-index: 5;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
 
     transform: translateX(-50%);
 }
 
 .indicador {
-    width: 9px;
-    height: 9px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+
     padding: 0;
 
-    background: rgba(255, 255, 255, 0.55);
+    background: transparent;
     border: none;
     border-radius: 50%;
 
     cursor: pointer;
 }
 
-.indicador.ativo {
+.indicador::before {
+    content: "";
+
+    width: 9px;
+    height: 9px;
+
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+
+    transition: background 0.25s ease;
+}
+
+.indicador.ativo::before {
     background: #FFFFFF;
 }
 
@@ -1103,7 +1137,7 @@ footer {
     display: inline-flex;
     align-items: center;
 
-    min-height: 32px;
+    min-height: 44px;
     max-width: 100%;
 
     color: #D1DCE7;
@@ -1295,6 +1329,9 @@ footer {
     }
 
     .header nav a {
+        justify-content: flex-start;
+
+        min-height: 44px;
         padding: 13px 0;
 
         color: #FFFFFF;
